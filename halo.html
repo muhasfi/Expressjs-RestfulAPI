@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form API POST Request</title>
+</head>
+<body>
+    <h1>Form API POST Request</h1>
+    <form id="apiForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" value="hsa"><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" value="tre"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="ert@has.com"><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" value="3453"><br><br>
+
+        <!-- Input untuk Authorization -->
+        <label for="authorization">Authorization:</label>
+        <input type="text" id="authorization" name="authorization" value="3aa71d5c-fd81-485e-860a-975de04679dd"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById("apiForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = {
+                firstName: document.getElementById("firstName").value,
+                lastName: document.getElementById("lastName").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value
+            };
+
+            const authorization = document.getElementById("authorization").value;
+
+            fetch("http://localhost:3000/api/contacts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": authorization
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response from API:", data);
+                // Handle the API response as needed
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                // Handle errors
+            });
+        });
+    </script>
+</body>
+</html>

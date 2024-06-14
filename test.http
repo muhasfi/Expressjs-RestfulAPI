@@ -1,0 +1,145 @@
+POST http://localhost:3000/api/users
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username" : "hasfi",
+    "password" : "test",
+    "name" : "muhammad"
+}
+
+### 
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username" : "hasfi",
+    "password" : "test"
+}
+
+###
+
+GET http://localhost:3000/api/users/current
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+###
+
+PATCH http://localhost:3000/api/users/current
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+{
+    "name" : "Muhammad hashfi"
+}
+
+###
+
+DELETE http://localhost:3000/api/users/logout
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+###
+
+POST http://localhost:3000/api/contacts
+Content-Type: application/json
+Accept: application/json
+Authorization: 8e91cb0f-2140-4c04-b1d4-c7d04e32ad71
+
+{
+    "firstName" : "hasfi",
+    "lastName" : "io",
+    "email" : "has@has.com",
+    "phone" : "345232"
+}
+
+###
+
+GET http://localhost:3000/api/contacts
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+###
+
+GET http://localhost:3000/api/contacts/5451
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+### Update Contact
+
+PUT  http://localhost:3000/api/contacts/5451
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+{
+    "firstName": "muhammad",
+    "lastName": "hasfi",
+    "email": "ppp@has.com",
+    "phone": "56789"
+}
+
+### delete contact
+
+DELETE http://localhost:3000/api/contacts/5451
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+
+### create address
+
+POST http://localhost:3000/api/contacts/5452/addresses
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+{
+    "street" : "rumah",
+    "city" : "kota",
+    "province" : "provinsi",
+    "country" : "indonesia",
+    "postalCode" : "23467"
+}
+
+### list addresses
+
+GET http://localhost:3000/api/contacts/5452/addresses
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+### Get address
+
+GET http://localhost:3000/api/contacts/5452/addresses/257
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+### update address
+
+PUT http://localhost:3000/api/contacts/5452/addresses/257
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
+
+{
+    "street": "jalan besar",
+    "city": "kota timur",
+    "province": "jawa timur",
+    "country": "indonesiaa",
+    "postalCode": "23467"
+  }
+
+### remove address
+
+DELETE http://localhost:3000/api/contacts/5452/addresses/257
+Content-Type: application/json
+Accept: application/json
+Authorization: 3aa71d5c-fd81-485e-860a-975de04679dd
